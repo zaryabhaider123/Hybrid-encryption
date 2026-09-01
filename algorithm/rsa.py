@@ -45,3 +45,11 @@ class RSAKeyManager:
                     encoding= serialization.Encoding.PEM,
                     format=serialization.PublicFormat.SubjectPublicKeyInfo
                 )
+
+    def load_private_key(self, pem_data, password = none):
+        self.private_key = serialization.load_pem_private_key(pem_data, password)
+        self.public_key = self.private_key.public_key()
+
+    def load_public_key(self, pem_data):
+        self.public_key = serialization.load_pem_public_key(pem_data)
+

@@ -8,11 +8,7 @@ from cryptography.hazmat.primitives import serialization, hashes
 #serialization: converts key objetcs from/to bytes, for saving/loading the PEM files
 #hashes needed by the OAEP for padding
 
-from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
-#AES for encrypting the main message
 
-from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
-# for password based key derivation
 import os
 #os.urandom() for generating secure random keys
 

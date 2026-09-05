@@ -19,13 +19,15 @@ class AES:
 
     def AES_encryption(self, plaintext):
         self.nonce = os.urandom(12)
+        textbytes =  plaintext.encode()
         cipher = Cipher(algorithms.AES(self.key), modes.GCM(self.nonce))
         encryptor = cipher.encryptor()
-        ciphertext = encryptor.update(plaintext) + encryptor.finalize()
+        ciphertext = encryptor.update(textbytes) + encryptor.finalize()
         return ciphertext, encryptor.tag
 
     def AES_dectryption(self, ciphertext, nonce, tag):
         cipher = Cipher(algorithms.AES(self.key), modes.GCM(nonce, tag))
-        decryptor = cipher.encryptor()
-        return decryptor.update(ciphertext) + decryptor.finalize()
+        decryptor = cipher.decryptor()
+        output = decryptor.update(ciphertext) + decryptor.finalize()
+        return output.decode()
     

@@ -29,6 +29,28 @@ class hybrid:
 
       return encrypted_key, ciphertext, aes.nonce, tag 
 
+    def decrypt(self, encrypted_key, ciphertext, nonce, tag):
+
+        aes_key = self.rsa_key_manager.private_key.decrypt(
+        encrypted_key,
+        padding.OAEP(
+            mgf=padding.MGF1(algorithm=hashes.SHA256()),
+            algorithm=hashes.SHA256(),
+            label=None
+        )
+     )
+
+        aes = AES(aes_key)
+
+        plaintext = aes.AES_dectryption(ciphertext, nonce, tag)
+
+        return plaintext
+
+
+
+        
+    
+
 
 
 

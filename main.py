@@ -53,7 +53,10 @@ while True:
         sign = base64.b64decode(input())
         
 
-        h.decrypt(encrypted_key, cipher, nonce, tag, sign, public_key)
+        output = h.decrypt(encrypted_key, cipher, nonce, tag, sign, public_key)
+
+        print("Text : ", output)
+
 
     elif mode == 3:
         key = rsa_manager.public_key

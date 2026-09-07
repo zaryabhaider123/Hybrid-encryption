@@ -29,5 +29,5 @@ class AES:
         cipher = Cipher(algorithms.AES(self.key), modes.GCM(nonce, tag))
         decryptor = cipher.decryptor()
         output = decryptor.update(ciphertext) + decryptor.finalize()
-        return output.decode()
+        return output
     

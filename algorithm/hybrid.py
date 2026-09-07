@@ -1,5 +1,5 @@
-from rsa import RSAKeyManager 
-from aes import AES
+from algorithm.rsa import RSAKeyManager 
+from algorithm.aes import AES
 
 from cryptography.hazmat.primitives.asymmetric import padding
 from cryptography.hazmat.primitives.asymmetric.padding import OAEP, MGF1
@@ -13,8 +13,19 @@ class hybrid:
         self.rsa_key_manager = rsa_key_manager
 
     def encrpt(self, plaintext):
-    
+
       aes = AES()
+
+      signature = self.rsa_key_manager.private_key.sign(
+       plaintext.encode(),
+       padding.PSS(
+        mgf=padding.MGF1(hashes.SHA256()),
+        salt_length=padding.PSS.MAX_LENGTH
+    ),
+        hashes.SHA256()
+)
+      
+    
 
       ciphertext, tag = aes.AES_encryption(plaintext)
 
@@ -27,9 +38,9 @@ class hybrid:
           )
       )
 
-      return encrypted_key, ciphertext, aes.nonce, tag 
+      return encrypted_key, ciphertext, aes.nonce, tag, signature
 
-    def decrypt(self, encrypted_key, ciphertext, nonce, tag):
+    def decrypt(self, encrypted_key, ciphertext, nonce, tag, signature, p_key):
 
         aes_key = self.rsa_key_manager.private_key.decrypt(
         encrypted_key,
@@ -44,7 +55,18 @@ class hybrid:
 
         plaintext = aes.AES_dectryption(ciphertext, nonce, tag)
 
-        return plaintext
+       
+        p_key.verify(
+            signature,
+            plaintext,
+            padding.PSS(
+                mgf=padding.MGF1(hashes.SHA256()),
+                salt_length=padding.PSS.MAX_LENGTH
+            ),
+            hashes.SHA256()
+)
+
+        return plaintext.decode()
 
 
 

@@ -15,10 +15,10 @@ This tool lets users encrypt and decrypt the message using the RSA and AES algor
 
 <h2>Cryptographic decision:</h2>
 
-**Why hybrid instead of pure RSA?**  
+<h4>Why hybrid instead of pure RSA?</h4>
 RSA is well suited for key exchange but it’s not practical for encrypting the entire message directly. Its block size is limited by the key size( around 190 bytes for 2048 bit key) and its underlying modular exponentiation is comparatively more expensive than the symmetric encryption. Hybrid resolves both issues by dividing the work, AES handles the actual message since it's fast and has no meaningful size limit while RSA is used only to encrypt a small, fixed size AES key giving RSA key exchange security without compromising on its performance.
  
-**Why AES-256 over AES-128?**  
+* **Why AES-256 over AES-128?**  
 Both AES-256 and AES-128 are exceptionally secure and approved encryption standards but AES-256 uses larger keys and more processing rounds. However, the main reason for choosing AES-256 was to match the strength of RSA as RSA was using a 2048 bit key. So, both sides of hybrid encryption have similar strength in security. The extra computation cost of AES-256 over AES-128 is negligible at the scale of short text messages so added security comes with no real performance cost.
 
 **Why GCM mode?**

@@ -60,9 +60,7 @@ Upon running the program, a menu appears with 4 options
 
 
 If the user chooses to encrypt, type the message to encrypt and copy the five values (cipher text, AES encrypted key, nonce, tag, signature).  
-
 If you select decrypt, enter the cipher text, AES encrypted key, nonce, tag, sender’s RSA public key and signature. If the signature succeeds, the original plaintext is displayed.  
-
 To share your public key, choose option 3. To exit the program, choose option 4.
 
  

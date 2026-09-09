@@ -37,18 +37,18 @@ Raw RSA is deterministic. If you encrypt the same message twice with the same pu
 
 <h2>Encryption Flow:</h2>
 
-Generate a random AES key   
-Encrypt message with AES-256-GCM   
-Hash  and sign the plaintext with sender’s private RSA key (PSS)   
-Encrypt the AES key with receiver’s RSA public key (OAEP)   
-Output : Cipher text, AES encrypted key, nonce, tag, signature   
+* Generate a random AES key   
+* Encrypt message with AES-256-GCM   
+* Hash  and sign the plaintext with sender’s private RSA key (PSS)   
+* Encrypt the AES key with receiver’s RSA public key (OAEP)   
+* Output : Cipher text, AES encrypted key, nonce, tag, signature   
 
-<h4>Decryption Flow:</h4>
+<h3>Decryption Flow:</h3>
 
-Decrypt the AES key using the RSA private key  
-Decrypt the cipher text using recovered AES key  
-Verify the signature against the decrypted plain text using sender’s public key  
-Output: original plaintext (only if signature verification succeeds )  
+* Decrypt the AES key using the RSA private key  
+* Decrypt the cipher text using recovered AES key  
+* Verify the signature against the decrypted plain text using sender’s public key  
+* Output: original plaintext (only if signature verification succeeds )  
 
 <h2>Usage:</h2>
 Upon running the program, a menu appears with 4 options
@@ -73,11 +73,13 @@ To share your public key, choose option 3. To exit the program, choose option 4.
 * Base64 encoding in this program is used only for safely transporting the text (copy / paste), it is fully reversible by anyone and provides no cryptographic protection on its own.
 
 <h2>Future Improvements:</h2>
+
 Password protected private key storage   
 File encryption mode   
 Optional GUI    
 
 <h2>Tech Stack:</h2>
+
 Python 3    
 Cryptography library    
 

@@ -63,6 +63,9 @@ If the user chooses to encrypt, type the message to encrypt and copy the five va
 If you select decrypt, enter the cipher text, AES encrypted key, nonce, tag, sender’s RSA public key and signature. If the signature succeeds, the original plaintext is displayed.  
 To share your public key, choose option 3. To exit the program, choose option 4.
 
+<h2>Program Screenshot</h2>
+<img width="1357" height="744" alt="Screenshot 2026-09-09 at 2 17 34 AM" src="https://github.com/user-attachments/assets/e693ed2a-c179-4c83-ba49-03adaf79c91c" />
+
  
 <h2>Security Notes and limitations:</h2>
 

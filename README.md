@@ -59,8 +59,10 @@ Upon running the program, a menu appears with 4 options
 4. Exit  
 
 
-If the user chooses to encrypt, type the message to encrypt and copy the five values (cipher text, AES encrypted key, nonce, tag, signature). 
-If you select decrypt, enter the cipher text, AES encrypted key, nonce, tag, sender’s RSA public key and signature. If the signature succeeds, the original plaintext is displayed. 
+If the user chooses to encrypt, type the message to encrypt and copy the five values (cipher text, AES encrypted key, nonce, tag, signature).  
+
+If you select decrypt, enter the cipher text, AES encrypted key, nonce, tag, sender’s RSA public key and signature. If the signature succeeds, the original plaintext is displayed.  
+
 To share your public key, choose option 3. To exit the program, choose option 4.
 
  
@@ -74,12 +76,12 @@ To share your public key, choose option 3. To exit the program, choose option 4.
 
 <h2>Future Improvements:</h2>
 
-Password protected private key storage   
-File encryption mode   
-Optional GUI    
+* Password protected private key storage   
+* File encryption mode   
+* Optional GUI    
 
 <h2>Tech Stack:</h2>
 
-Python 3    
-Cryptography library    
+* Python 3    
+* Cryptography library    
 

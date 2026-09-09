@@ -36,11 +36,12 @@ Raw RSA is deterministic. If you encrypt the same message twice with the same pu
 
 
 <h2>Encryption Flow:</h2>
-Generate a random AES key  
-Encrypt message with AES-256-GCM  
-Hash  and sign the plaintext with sender’s private RSA key (PSS)  
-Encrypt the AES key with receiver’s RSA public key (OAEP)  
-Output : Cipher text, AES encrypted key, nonce, tag, signature  
+
+Generate a random AES key\  
+Encrypt message with AES-256-GCM\  
+Hash  and sign the plaintext with sender’s private RSA key (PSS)\  
+Encrypt the AES key with receiver’s RSA public key (OAEP)\  
+Output : Cipher text, AES encrypted key, nonce, tag, signature\  
 
 <h4>Decryption Flow:</h4>
 
